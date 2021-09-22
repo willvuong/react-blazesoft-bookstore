@@ -16,7 +16,7 @@ const AddBook = ({ addBook }) => {
         addBook({bookName, bookPrice, bookCategory})
 
         
-        setBookName("dsf")
+        setBookName("")
         setBookPrice("")
         setBookCategory("")
 

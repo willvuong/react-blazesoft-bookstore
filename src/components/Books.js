@@ -1,10 +1,17 @@
 import React from 'react'
+import Book from './Book'
 
-const Books = () => {
+const Books = ({ books, deleteBook }) => {
     return (
-        <div>
-            
-        </div>
+        <>
+            {books.map((book) => (
+                <Book
+                    key={book.id}
+                    book={book}
+                    deleteBook={deleteBook}
+                />
+            ))}
+        </>
     )
 }
 

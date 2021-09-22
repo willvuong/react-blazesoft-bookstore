@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header.js'
 import AddBookButton from './components/AddBookButton'
 import AddBook from './components/AddBook.js'
+import Books from './components/Books'
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -30,6 +31,8 @@ const App = () => {
         onClick={() => setShowAddBook(!showAddBook)}
       />
       {showAddBook && <AddBook addBook={addBook}/>}
+      <Books books={books} deleteBook={deleteBook} />
+
     </div>
   );
 }
