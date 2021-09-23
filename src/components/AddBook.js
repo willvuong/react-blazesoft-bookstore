@@ -4,22 +4,23 @@ const AddBook = ({ addBook }) => {
     const [bookName, setBookName] = useState("");
     const [bookPrice, setBookPrice] = useState("");
     const [bookCategory, setBookCategory] = useState("");
+    const [bookDescription, setBookDescription] = useState("");
     
     const onSubmit = (e) => {
         e.preventDefault()
 
-        if(!bookName || !bookPrice || !bookCategory ) {
+        if(!bookName || !bookPrice || !bookCategory || !bookDescription ) {
             alert('Please enter values in the specified fields.')
             return
         }
 
-        addBook({bookName, bookPrice, bookCategory})
+        addBook({bookName, bookPrice, bookCategory, bookDescription})
 
         
         setBookName("")
         setBookPrice("")
         setBookCategory("")
-
+        setBookDescription("")
     }
 
     return (
@@ -37,9 +38,15 @@ const AddBook = ({ addBook }) => {
             </div>
 
             <div className="form-section">
-                <label>Book Category</label>
+                <label>Category</label>
                 <input type="text" placeholder="ex: Mystery"
                 value={bookCategory} onChange={(e) => setBookCategory(e.target.value)}/>
+            </div>
+
+            <div className="form-section">
+                <label>Description</label>
+                <textarea rows="4" cols="50"
+                value={bookDescription} onChange={(e) => setBookDescription(e.target.value)}/>
             </div>
 
             <input type='submit' value='Save Book' />
