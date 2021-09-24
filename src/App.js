@@ -10,34 +10,7 @@ import { Provider } from 'react-redux'
 import store from './redux/store.js'
 
 const App = () => {
-  const [books, setBooks] = useState([]);
   const [showAddBook, setShowAddBook] = useState(false);
-
-  // add book
-  const addBook = (book) => {
-    const id = Math.floor(Math.random() * 1000) + 1;
-
-    const newBook = { id, ...book };
-    setBooks([...books, newBook]);
-  }
-
-  // delete book
-  const deleteBook = (id) => {
-    setBooks(books.filter((book) => book.id !== id))
-  }
-
-  // update book 
-  const updateBook = (bookEntry) => {
-
-    const update = books.map(book => {
-      if (book.id === bookEntry.id) { // setBooks([bookEntry])
-        book = bookEntry
-      }
-      return book;
-    });
-
-    setBooks(update);
-  }
 
   return (
     <Provider store={store}> 
@@ -47,8 +20,8 @@ const App = () => {
         icon={showAddBook ? <i class="fas fa-times fa-2x"></i> : <i class="fas fa-plus fa-2x"></i>}
         onClick={() => setShowAddBook(!showAddBook)}
       />
-      {showAddBook && <AddBook addBook={addBook} />}
-      <Books books={books} deleteBook={deleteBook} updateBook={updateBook} />
+      {showAddBook && <AddBook/>}
+      <Books/>
     </div>
     </Provider>
   );

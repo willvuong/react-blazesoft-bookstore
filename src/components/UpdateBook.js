@@ -1,4 +1,8 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+
+import { connect } from 'react-redux' 
+import { updateBook } from '../redux/actions/booksActions';
 
 const UpdateBook = ({ book, updateBook }) => {
     const [bookName, setBookName] = useState("");
@@ -74,4 +78,8 @@ const UpdateBook = ({ book, updateBook }) => {
     )
 }
 
-export default UpdateBook
+UpdateBook.propTypes = {
+    updateBook: PropTypes.func.isRequired
+}
+
+export default connect(null, { updateBook })(UpdateBook)

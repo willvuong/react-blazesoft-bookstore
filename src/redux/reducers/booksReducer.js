@@ -6,10 +6,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type) {
-        case ADD_BOOK: 
+        case ADD_BOOK:
+            const id = Math.floor(Math.random() * 1000) + 1;
+            const newBook = { id, ...action.payload} 
             return {
                 ...state,
-                books: [...state.books, action.payload]
+                books: [...state.books, newBook]
             }
         case DELETE_BOOK:
             return {
@@ -17,13 +19,16 @@ export default (state = initialState, action) => {
                 books: state.books.filter((book) => book.id !== action.payload)
             }
         case UPDATE_BOOK:
+            const update = state.books.map(book => {
+                    if(book.id === action.payload.id) {
+                        book = action.payload
+                    }
+                    return book;
+                })
             return {
                 ...state,
-                books: state.books.map(book => 
-                    book.id === action.payload.id ? action.payload : book
-                )
+                books: update
             }
-        
         default:
             return state;
     }
