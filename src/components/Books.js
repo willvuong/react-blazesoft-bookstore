@@ -1,14 +1,15 @@
 import React from 'react'
 import Book from './Book'
 
-const Books = ({ books, deleteBook }) => {
+const Books = ({ books, deleteBook, updateBook}) => {
     return (
         <>
-            {books.map((book) => (
+            {books.length > 0 && books.map((book) => (
                 <Book
                     key={book.id}
                     book={book}
                     deleteBook={deleteBook}
+                    updateBook={updateBook}
                 />
             ))}
         </>

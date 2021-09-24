@@ -13,9 +13,15 @@ const AddBook = ({ addBook }) => {
             alert('Please enter values in the specified fields.')
             return
         }
+        
+        const add = {
+            bookName, 
+            bookPrice, 
+            bookCategory, 
+            bookDescription
+        };
 
-        addBook({bookName, bookPrice, bookCategory, bookDescription})
-
+        addBook(add)
         
         setBookName("")
         setBookPrice("")

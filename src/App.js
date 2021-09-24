@@ -23,6 +23,19 @@ const App = () => {
     setBooks(books.filter((book) => book.id !== id))
   }
 
+  // update book 
+  const updateBook = (id, bookEntry) => {
+
+    const update = books.map(book => {
+      if (book.id === id) { // setBooks([bookEntry])
+        book = bookEntry
+      }
+      return book;
+    });
+
+    setBooks(update);
+  }
+
   return (
     <div className="App">
       <Header />
@@ -30,9 +43,8 @@ const App = () => {
         icon={showAddBook ? <i class="fas fa-times fa-2x"></i> : <i class="fas fa-plus fa-2x"></i>}
         onClick={() => setShowAddBook(!showAddBook)}
       />
-      {showAddBook && <AddBook addBook={addBook}/>}
-      <Books books={books} deleteBook={deleteBook} />
-
+      {showAddBook && <AddBook addBook={addBook} />}
+      <Books books={books} deleteBook={deleteBook} updateBook={updateBook} />
     </div>
   );
 }
