@@ -6,6 +6,9 @@ import AddBookButton from './components/AddBookButton'
 import AddBook from './components/AddBook.js'
 import Books from './components/Books'
 
+import { Provider } from 'react-redux'
+import store from './store.js'
+
 const App = () => {
   const [books, setBooks] = useState([]);
   const [showAddBook, setShowAddBook] = useState(false);
@@ -37,6 +40,7 @@ const App = () => {
   }
 
   return (
+    <Provider store={store}> 
     <div className="App">
       <Header />
       <AddBookButton
@@ -46,6 +50,7 @@ const App = () => {
       {showAddBook && <AddBook addBook={addBook} />}
       <Books books={books} deleteBook={deleteBook} updateBook={updateBook} />
     </div>
+    </Provider>
   );
 }
 
