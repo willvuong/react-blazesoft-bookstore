@@ -23,13 +23,14 @@ const UpdateBook = ({ book, updateBook }) => {
             return
         } 
             const update = {
+                id: book.id,
                 bookName,
                 bookPrice,
                 bookCategory,
                 bookDescription
             }
             
-            updateBook(book.id, update)
+            updateBook(update)
 
             setBookName("")
             setBookPrice("")

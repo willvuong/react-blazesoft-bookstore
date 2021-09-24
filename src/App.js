@@ -7,7 +7,7 @@ import AddBook from './components/AddBook.js'
 import Books from './components/Books'
 
 import { Provider } from 'react-redux'
-import store from './store.js'
+import store from './redux/store.js'
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -27,10 +27,10 @@ const App = () => {
   }
 
   // update book 
-  const updateBook = (id, bookEntry) => {
+  const updateBook = (bookEntry) => {
 
     const update = books.map(book => {
-      if (book.id === id) { // setBooks([bookEntry])
+      if (book.id === bookEntry.id) { // setBooks([bookEntry])
         book = bookEntry
       }
       return book;
