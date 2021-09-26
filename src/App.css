@@ -206,3 +206,29 @@ body {
 .Book:nth-child(even) {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Footer */
+.Footer {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 1rem;
+}
+
+.Footer a {
+  padding: 0.2rem;
+}
+
+.Footer i {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1.5rem;
+  transition: 0.2s ease-in-out;
+}
+
+.Footer i:hover {
+  color: white;
+  opacity: 0.7;
+}
