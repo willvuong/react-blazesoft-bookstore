@@ -10,6 +10,8 @@ const UpdateBook = ({ book, updateBook }) => {
     const [bookCategory, setBookCategory] = useState("");
     const [bookDescription, setBookDescription] = useState("");
 
+    const [closeUpdateBook, setCloseUpdateBook] = useState("false");
+
     useEffect(() => {
         if (book) {
             setBookName(book.bookName)
@@ -36,40 +38,54 @@ const UpdateBook = ({ book, updateBook }) => {
         setBookPrice("")
         setBookCategory("")
         setBookDescription("")
+    }
 
-
+    const onUpdate = () => {
+        setCloseUpdateBook(!closeUpdateBook);
+        alert(`Successfully updated: ${bookName}`)
     }
 
     return (
-        <form className="UpdateBook" onSubmit={onSubmit}>
-            <h2>Update {book.bookName}</h2>
-            <div className="form-section">
-                <label>Name</label>
-                <input type="text" placeholder="ex: Goosebumps"
-                    value={bookName} onChange={(e) => setBookName(e.target.value)} />
-            </div>
+        <div className={closeUpdateBook ? "UpdateBook" : "UpdateBookClose"}>
+            <form className="update-book-modal" onSubmit={onSubmit}>
 
-            <div className="form-section">
-                <label>Price</label>
-                <input type="text" placeholder="$00.00"
-                    value={bookPrice} onChange={(e) => setBookPrice(e.target.value)} />
-            </div>
+                <h2 id="update-book-h2">Update {book.bookName}</h2>
+                <i id="update-book-x" class="fas fa-times fa-2x" onClick={() => setCloseUpdateBook(!closeUpdateBook)}></i>
 
-            <div className="form-section">
-                <label>Category</label>
-                <input type="text" placeholder="ex: Mystery"
-                    value={bookCategory} onChange={(e) => setBookCategory(e.target.value)} />
-            </div>
+                <div className="form-section">
+                    <div className="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="ex: Goosebumps"
+                            value={bookName} onChange={(e) => setBookName(e.target.value)} />
+                    </div>
 
-            <div className="form-section">
-                <label>Description</label>
-                <textarea rows="4" cols="50"
-                    value={bookDescription} onChange={(e) => setBookDescription(e.target.value)} />
-            </div>
+                    <div className="form-group">
+                        <label>Price</label>
+                        <input type="text" placeholder="$00.00"
+                            value={bookPrice} onChange={(e) => setBookPrice(e.target.value)} />
+                    </div>
 
-            <input type='submit' value='Update Book' />
-        </form>
+                    <div className="form-group">
+                        <label>Category</label>
+                        <input type="text" placeholder="ex: Mystery"
+                            value={bookCategory} onChange={(e) => setBookCategory(e.target.value)} />
+                    </div>
+                </div>
 
+                <div className="form-section">
+                    <div className="form-group">
+                        <label>Description</label>
+                        <textarea rows="4" cols="50"
+                            value={bookDescription} onChange={(e) => setBookDescription(e.target.value)} />
+                    </div>
+                </div>
+
+                <div className="button-section">
+                    <input className="save-button" type='submit' value='Update Book' onClick={onUpdate}/>
+                </div>
+
+            </form>
+        </div>
 
     )
 }

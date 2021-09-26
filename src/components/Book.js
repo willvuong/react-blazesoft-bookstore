@@ -15,9 +15,10 @@ const Book = ({ book, deleteBook }) => {
             <p>Category: {book.bookCategory}</p>
             <p>Description: {book.bookDescription}</p>
             <i class="fas fa-times" onClick={() => deleteBook(book.id)}></i>
-            
+
             <i class="fas fa-pen" onClick={() => setUpdateBook(!showUpdateBook)}></i>
-            {showUpdateBook && <UpdateBook book={book}/>}
+
+            {showUpdateBook && <UpdateBook book={book} />}
         </div>
     )
 }

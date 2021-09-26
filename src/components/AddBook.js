@@ -31,7 +31,6 @@ const AddBook = ({ addBook }) => {
         <form className="AddBook" onSubmit={onSubmit}>
 
             <div className="form-section">
-
                 <div className="form-group">
                     <label>Name</label>
                     <input type="text" placeholder="ex: Goosebumps" required
@@ -49,21 +48,18 @@ const AddBook = ({ addBook }) => {
                     <input type="text" placeholder="ex: Mystery" required
                         value={bookCategory} onChange={(e) => setBookCategory(e.target.value)} />
                 </div>
-
             </div>
 
             <div className="form-section">
-
                 <div className="form-group">
                     <label>Description</label>
                     <textarea
                         value={bookDescription} required onChange={(e) => setBookDescription(e.target.value)} />
                 </div>
-
             </div>
 
             <div className="button-section">
-                <input id="save-button" type='submit' value='Save Book' />
+                <input className="save-button" type='submit' value='Save Book' />
             </div>
 
         </form>
