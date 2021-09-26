@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { connect } from 'react-redux' 
+import { connect } from 'react-redux'
 import { updateBook } from '../redux/actions/booksActions';
 
 const UpdateBook = ({ book, updateBook }) => {
@@ -22,25 +22,21 @@ const UpdateBook = ({ book, updateBook }) => {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        if (!bookName || !bookPrice || !bookCategory || !bookDescription) {
-            alert('Please enter values in the specified fields.')
-            return
-        } 
-            const update = {
-                id: book.id,
-                bookName,
-                bookPrice,
-                bookCategory,
-                bookDescription
-            }
-            
-            updateBook(update)
+        const update = {
+            id: book.id,
+            bookName,
+            bookPrice,
+            bookCategory,
+            bookDescription
+        }
 
-            setBookName("")
-            setBookPrice("")
-            setBookCategory("")
-            setBookDescription("")
-        
+        updateBook(update)
+
+        setBookName("")
+        setBookPrice("")
+        setBookCategory("")
+        setBookDescription("")
+
 
     }
 

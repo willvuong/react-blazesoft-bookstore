@@ -12,11 +12,6 @@ const AddBook = ({ addBook }) => {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        if (!bookName || !bookPrice || !bookCategory || !bookDescription) {
-            alert('Please enter values in the specified fields.')
-            return
-        }
-
         const add = {
             bookName,
             bookPrice,
@@ -39,19 +34,19 @@ const AddBook = ({ addBook }) => {
 
                 <div className="form-group">
                     <label>Name</label>
-                    <input type="text" placeholder="ex: Goosebumps"
+                    <input type="text" placeholder="ex: Goosebumps" required
                         value={bookName} onChange={(e) => setBookName(e.target.value)} />
                 </div>
 
                 <div className="form-group">
                     <label>Price</label>
-                    <input type="text" placeholder="$00.00"
+                    <input type="text" placeholder="$00.00" required
                         value={bookPrice} onChange={(e) => setBookPrice(e.target.value)} />
                 </div>
 
                 <div className="form-group">
                     <label>Category</label>
-                    <input type="text" placeholder="ex: Mystery"
+                    <input type="text" placeholder="ex: Mystery" required
                         value={bookCategory} onChange={(e) => setBookCategory(e.target.value)} />
                 </div>
 
@@ -62,7 +57,7 @@ const AddBook = ({ addBook }) => {
                 <div className="form-group">
                     <label>Description</label>
                     <textarea
-                        value={bookDescription} onChange={(e) => setBookDescription(e.target.value)} />
+                        value={bookDescription} required onChange={(e) => setBookDescription(e.target.value)} />
                 </div>
 
             </div>
