@@ -8,24 +8,24 @@ const AddBook = ({ addBook }) => {
     const [bookPrice, setBookPrice] = useState("");
     const [bookCategory, setBookCategory] = useState("");
     const [bookDescription, setBookDescription] = useState("");
-    
+
     const onSubmit = (e) => {
         e.preventDefault()
 
-        if(!bookName || !bookPrice || !bookCategory || !bookDescription ) {
+        if (!bookName || !bookPrice || !bookCategory || !bookDescription) {
             alert('Please enter values in the specified fields.')
             return
         }
-        
+
         const add = {
-            bookName, 
-            bookPrice, 
-            bookCategory, 
+            bookName,
+            bookPrice,
+            bookCategory,
             bookDescription
         };
 
         addBook(add)
-        
+
         setBookName("")
         setBookPrice("")
         setBookCategory("")
@@ -34,31 +34,43 @@ const AddBook = ({ addBook }) => {
 
     return (
         <form className="AddBook" onSubmit={onSubmit}>
+
             <div className="form-section">
-                <label>Name</label>
-                <input type="text" placeholder="ex: Goosebumps"
-                value={bookName} onChange={(e) => setBookName(e.target.value)}/>
+
+                <div className="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="ex: Goosebumps"
+                        value={bookName} onChange={(e) => setBookName(e.target.value)} />
+                </div>
+
+                <div className="form-group">
+                    <label>Price</label>
+                    <input type="text" placeholder="$00.00"
+                        value={bookPrice} onChange={(e) => setBookPrice(e.target.value)} />
+                </div>
+
+                <div className="form-group">
+                    <label>Category</label>
+                    <input type="text" placeholder="ex: Mystery"
+                        value={bookCategory} onChange={(e) => setBookCategory(e.target.value)} />
+                </div>
+
             </div>
 
             <div className="form-section">
-                <label>Price</label>
-                <input type="text" placeholder="$00.00"
-                value={bookPrice} onChange={(e) => setBookPrice(e.target.value)}/>
+
+                <div className="form-group">
+                    <label>Description</label>
+                    <textarea
+                        value={bookDescription} onChange={(e) => setBookDescription(e.target.value)} />
+                </div>
+
             </div>
 
-            <div className="form-section">
-                <label>Category</label>
-                <input type="text" placeholder="ex: Mystery"
-                value={bookCategory} onChange={(e) => setBookCategory(e.target.value)}/>
+            <div className="button-section">
+                <input id="save-button" type='submit' value='Save Book' />
             </div>
 
-            <div className="form-section">
-                <label>Description</label>
-                <textarea rows="4" cols="50"
-                value={bookDescription} onChange={(e) => setBookDescription(e.target.value)}/>
-            </div>
-
-            <input type='submit' value='Save Book' />
         </form>
     )
 }
