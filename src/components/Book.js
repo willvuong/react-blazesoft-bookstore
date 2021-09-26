@@ -9,17 +9,19 @@ const Book = ({ book, deleteBook }) => {
     const [showUpdateBook, setUpdateBook] = useState(false);
 
     return (
-        <div className="Book">
-            <h2>{book.bookName}</h2>
-            <p>Price: {book.bookPrice}</p>
-            <p>Category: {book.bookCategory}</p>
-            <p>Description: {book.bookDescription}</p>
-            <i class="fas fa-times" onClick={() => deleteBook(book.id)}></i>
+        <tr className="Book">
+            <td>{book.bookName}</td>
+            <td>{book.bookPrice}</td>
+            <td>{book.bookCategory}</td>
+            <td>{book.bookDescription}</td>
 
-            <i class="fas fa-pen" onClick={() => setUpdateBook(!showUpdateBook)}></i>
+            <div className="book-buttons">
+                <i class="fas fa-pen" onClick={() => setUpdateBook(!showUpdateBook)}></i>
+                <i class="fas fa-times" onClick={() => deleteBook(book.id)}></i>
+            </div>
 
             {showUpdateBook && <UpdateBook book={book} />}
-        </div>
+        </tr>
     )
 }
 

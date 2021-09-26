@@ -133,3 +133,76 @@ body {
 #update-book-x {
   float: right;
 }
+
+/* Books */
+.Books {
+  margin: 1rem;
+}
+
+.books-table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.books-table tr {
+  text-align: left;
+}
+
+#books-table-h2 {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.table-headings {
+  background-color: #006386;
+}
+
+.books-table th {
+  padding: 1rem;
+}
+
+/* Book */
+.Book {
+  position: relative;
+  width: 100;
+}
+
+.Book td {
+  padding: 1rem;
+}
+
+.book-buttons {
+  display: none;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: 1.2s ease-in-out;
+}
+
+.Book:hover .book-buttons {
+  display: flex;
+}
+
+.book-buttons i {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.book-buttons i:nth-child(1) {
+  background-color: #91E3CE;
+}
+
+.book-buttons i:nth-child(2) {
+  background-color: red;
+}
+
+.Book:nth-child(odd) {
+  background-color: #113a5e;
+}
+
+.Book:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.2);
+}

@@ -4,16 +4,27 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 
-const Books = ({ books: {books}}) => {
+const Books = ({ books: { books } }) => {
     return (
-        <>
-            {books.length > 0 && books.map((book) => (
-                <Book
-                    key={book.id}
-                    book={book}
-                />
-            ))}
-        </>
+        <div className="Books">
+            <table className="books-table">
+                {books.length > 0 && <h2 id="books-table-h2">Books</h2>}
+                {books.length > 0 &&
+                    <tr className="table-headings">
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                    </tr>
+                }
+                {books.length > 0 && books.map((book) => (
+                    <Book
+                        key={book.id}
+                        book={book}
+                    />
+                ))}
+            </table>
+        </div>
     )
 }
 
