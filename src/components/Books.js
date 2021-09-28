@@ -12,8 +12,8 @@ const Books = ({ books: { books } }) => {
                 {books.length > 0 &&
                     <tr className="table-headings">
                         <th>Name</th>
-                        <th>Category</th>
                         <th>Price</th>
+                        <th>Category</th>
                         <th>Description</th>
                     </tr>
                 }
